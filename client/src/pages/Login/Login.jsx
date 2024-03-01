@@ -112,7 +112,7 @@ const Login = () => {
                         {errors.confirmPassword && <div className={styles.errorMessage}>{errors.confirmPassword}</div>}
                         <button onClick={(e) => handleSubmit(e)}>Sign Up</button>'
                         <p>Already have an account?</p>
-                        <button type="button" name='setToSignup' onClick={(e) => handleSignupOrLogin(e)}>
+                        <button type="button" name='setToSignup' className={styles.btnLogin} onClick={(e) => handleSignupOrLogin(e)}>
                             Login
                         </button>
                     </form>

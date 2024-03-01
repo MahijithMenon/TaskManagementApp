@@ -63,3 +63,13 @@ button {
     color: red;
     font-size: 12px;
 }
+
+.btnLogin {
+
+    background-color: #17A2B8;
+    color: white;
+    border: none;
+    padding: 1em;
+    width: 50%;
+    cursor: pointer;
+}
