@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
+import eyeIcon from '../../assets/eye.png';
 
 
 const Login = () => {
     const [isSignUp, setIsSignUp] = useState(false);
     const navigate = useNavigate();
+    const [passwordType, setPasswordType] = useState('password');
     const [userDetails, setUserDetails] = useState({
         name: '',
         email: '',
@@ -69,9 +71,10 @@ const Login = () => {
                 localStorage.setItem('userDetails', JSON.stringify(response.data.userDetails));
                 navigate('/dashboard');
             }
+
         } catch (error) {
-            setErrors({ general: 'An error occurred during form submission' });
-            console.log(error);
+            setErrors({ general: error.message });
+
         }
 
     }
@@ -86,17 +89,22 @@ const Login = () => {
                 <div className={styles.rightPanel}>
                     <form>
                         <h2>Login</h2>
-                        <label htmlFor="email">Email:</label>
+
                         <input type="text" id="email" name="email" placeholder='email' value={userDetails.email} onChange={(e) => handleChangeInput(e)} />
                         {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
-                        <label htmlFor="password">Password:</label>
-                        <input type="password" id="password" placeholder='password' name="password" value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
+                        <div className={styles.passwordDiv}>
+
+
+                            <input type={passwordType} id="password" placeholder='password' className={styles.passwordInput} name="password" value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
+                            <img src={eyeIcon} height={20} width={20} alt="eye" onClick={() => setPasswordType(passwordType === 'password' ? 'text' : 'password')} />
+                        </div>
                         {errors.password && <div className={styles.errorMessage}>{errors.password}</div>}
                         <button type='button' className={styles.btnLogin} name='setToLogin' onClick={(e) => handleSubmit(e)}>Login</button>
                         <p>Have no account yet?</p>
-                        <button type="button" name='setToRegister' onClick={(e) => handleSignupOrLogin(e)}>
+                        <button type="button" name='setToRegister' className={styles.btnOpp} onClick={(e) => handleSignupOrLogin(e)}>
                             Register
                         </button>
+                        {errors.general && <div className={styles.errorMessage}>{errors.general}</div>}
                     </form>
                 </div>
             ) : (
@@ -113,9 +121,10 @@ const Login = () => {
                         {errors.confirmPassword && <div className={styles.errorMessage}>{errors.confirmPassword}</div>}
                         <button type='button' className={styles.btnLogin} onClick={(e) => handleSubmit(e)}>Sign Up</button>'
                         <p>Already have an account?</p>
-                        <button type="button" name='setToLogin' onClick={(e) => handleSignupOrLogin(e)} >
+                        <button type="button" name='setToLogin' className={styles.btnOpp} onClick={(e) => handleSignupOrLogin(e)} >
                             Login
                         </button>
+                        {errors.general && <div className={styles.errorMessage}>{errors.general}</div>}
                     </form>
                 </div>
             )}

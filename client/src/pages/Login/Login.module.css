@@ -67,8 +67,55 @@ button {
 .btnLogin {
     background-color: #17A2B8;
     color: white;
-    border: none;
+    border: white;
     padding: 1em;
     width: 50%;
+    cursor: pointer;
+}
+
+input {
+    border: 1px solid #D0D0D0 !important;
+    border-radius: 5px !important;
+    padding: 1em !important;
+    width: 50% !important;
+
+}
+
+.btnOpp {
+    background-color: #white;
+    color: #17A2B8;
+    border: #17A2B8;
+    padding: 1em;
+    width: 50%;
+    cursor: pointer;
+}
+
+.passwordInput {
+    border: none !important;
+
+
+}
+
+.passwordDiv {
+    height: 50px;
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #D0D0D0;
+    border-radius: 5px;
+    padding: 1em;
+    margin: 1em 0;
+
+}
+
+.passwordDiv input {
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.passwordDiv img {
     cursor: pointer;
 }

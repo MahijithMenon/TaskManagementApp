@@ -7,6 +7,9 @@ import DeleteIcon from '../../assets/delete.png'
 
 function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
     const [task, setTask] = useState({ title: '', priority: '', checklist: [], dueDate: '' });
+    const totalTasks = task.checklist.length;
+    const completedTasks = task.checklist.reduce((count, task) => task.completed ? count + 1 : count, 0);
+
 
 
 
@@ -97,6 +100,76 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
     }
 
     const today = new Date().toISOString().split('T')[0];
+    // return (
+    //     <div className={styles.modal}>
+    //         <div className={styles.modalContent}>
+    //             <label className={styles.inputLabel}>
+    //                 Title:
+    //                 <input type="text" value={task.title} name='title' onChange={e => setTask({ ...task, title: e.target.value })} />
+    //             </label>
+    //             <fieldset className={styles.radioGroup}>
+    //                 <legend>Select Priority:</legend>
+    //                 <label className={styles.radioButton}>
+    //                     <input type="radio" name="priority" value="low" checked={task.priority === 'low'}
+    //                         onChange={e => setTask({ ...task, priority: e.target.value })} /> Low
+    //                 </label>
+    //                 <label className={styles.radioButton}>
+    //                     <input type="radio" name="priority" value="medium" checked={task.priority === 'medium'}
+    //                         onChange={e => setTask({ ...task, priority: e.target.value })} /> Medium
+    //                 </label>
+    //                 <label className={styles.radioButton}>
+    //                     <input type="radio" name="priority" value="high" checked={task.priority === 'high'}
+    //                         onChange={e => setTask({ ...task, priority: e.target.value })} /> High
+    //                 </label>
+    //             </fieldset>
+    //             <label className={styles.inputLabel}>
+    //                 Checklist:
+    //                 <div className={styles.scrollableDiv}>
+    //                     {task.checklist.length > 0 ? (
+    //                         task.checklist.map((item, index) => (
+    //                             <div key={index} >
+    //                                 <div className={styles.checklistItem} onClick={event => event.stopPropagation()}>
+    //                                     <input
+    //                                         type="checkbox"
+    //                                         checked={item.completed}
+    //                                         onChange={event => handleCheckboxChange(index, event)}
+    //                                     />
+    //                                     <input
+    //                                         type="text"
+    //                                         placeholder='Add an item to the checklist...'
+    //                                         value={item.text}
+    //                                         onChange={event => handleInputChange(index, event)}
+    //                                     />
+    //                                     {index > 0 && <img className="deleteIcon" src={DeleteIcon} height={20} width={20} onClick={() => handleDeleteClick(index)}></img>}
+    //                                 </div>
+    //                             </div>
+    //                         ))
+    //                     ) : (
+    //                         <p>No checklist items</p>
+    //                     )}
+    //                 </div>
+    //             </label>
+    //             <button onClick={handleAddClick}>Add new checklist item</button>
+    //             <div className={styles.buttonGroup}>
+    //                 <div className={styles.leftSide}>
+    //                     <label>
+    //                         Due Date:
+    //                         <input type="date" min={today} value={task.dueDate} onChange={handleDueDateChange} />
+    //                     </label>
+    //                 </div>
+
+    //                 <div className={styles.rightSide}>
+    //                     <button className={styles.cancelButton} onClick={handleCancel}>Cancel</button>
+    //                     {taskId ? (
+    //                         <button className={styles.saveButton} onClick={handleSubmit}>Update</button>
+    //                     ) : (
+    //                         <button className={styles.saveButton} onClick={handleSubmit}>Save</button>
+    //                     )}
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div>
+    // );
     return (
         <div className={styles.modal}>
             <div className={styles.modalContent}>
@@ -104,23 +177,25 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
                     Title:
                     <input type="text" value={task.title} name='title' onChange={e => setTask({ ...task, title: e.target.value })} />
                 </label>
-                <fieldset className={styles.radioGroup}>
-                    <legend>Select Priority:</legend>
-                    <label className={styles.radioButton}>
+
+                <div className={styles.radioButtons}>
+                    <label>Select Priority:</label>
+                    <label className={`${task.priority === 'low' ? styles.radioButtonActive : ''} ${styles.radioButton} ${styles.radioButtonLow}`}>
                         <input type="radio" name="priority" value="low" checked={task.priority === 'low'}
                             onChange={e => setTask({ ...task, priority: e.target.value })} /> Low
                     </label>
-                    <label className={styles.radioButton}>
+                    <label className={`${task.priority === 'medium' ? styles.radioButtonActive : ''} ${styles.radioButton} ${styles.radioButtonMedium}`}>
                         <input type="radio" name="priority" value="medium" checked={task.priority === 'medium'}
                             onChange={e => setTask({ ...task, priority: e.target.value })} /> Medium
                     </label>
-                    <label className={styles.radioButton}>
+                    <label className={`${task.priority === 'high' ? styles.radioButtonActive : ''} ${styles.radioButton} ${styles.radioButtonHigh}`}>
                         <input type="radio" name="priority" value="high" checked={task.priority === 'high'}
                             onChange={e => setTask({ ...task, priority: e.target.value })} /> High
                     </label>
-                </fieldset>
+                </div>
+
                 <label className={styles.inputLabel}>
-                    Checklist:
+                    Checklist{completedTasks}/{totalTasks}:
                     <div className={styles.scrollableDiv}>
                         {task.checklist.length > 0 ? (
                             task.checklist.map((item, index) => (
@@ -148,14 +223,11 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
                 </label>
                 <button onClick={handleAddClick}>Add new checklist item</button>
                 <div className={styles.buttonGroup}>
-                    <div className={styles.leftSide}>
-                        <label>
-                            Due Date:
-                            <input type="date" min={today} value={task.dueDate} onChange={handleDueDateChange} />
-                        </label>
-                    </div>
-
-                    <div className={styles.rightSide}>
+                    <label>
+                        Due Date:
+                        <input type="date" min={today} value={task.dueDate} onChange={handleDueDateChange} />
+                    </label>
+                    <div className={styles.innerDiv}>
                         <button className={styles.cancelButton} onClick={handleCancel}>Cancel</button>
                         {taskId ? (
                             <button className={styles.saveButton} onClick={handleSubmit}>Update</button>

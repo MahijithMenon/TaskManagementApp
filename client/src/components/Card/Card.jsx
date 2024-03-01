@@ -13,6 +13,20 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
     const [isClicked, setIsClicked] = useState(false);
     const [isListVisible, setIsListVisible] = useState(false);
     const [showTaskModal, setShowTaskModal] = useState(false);
+    const [totalTasks, setTotalTasks] = useState(0);
+    const [completedTasks, setCompletedTasks] = useState(0);
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+    const dueDate = new Date(task.dueDate);
+
+    let dueDateColor;
+    if (boardName === 'Done' && task.dueDate) {
+        dueDateColor = '#63C05B';
+    } else if (dueDate < currentDate) {
+        dueDateColor = 'red';
+    } else {
+        dueDateColor = 'black';
+    }
 
 
     const boards = ['Backlog', 'To Do', 'In Progress', 'Done'];
@@ -49,6 +63,9 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
         const getTask = async () => {
             const response = await axios.get(`http://localhost:5000/getTask/${taskID}`);
             setTask(response.data);
+            setTotalTasks(response.data.checklist.length);
+            setCompletedTasks(response.data.checklist.filter(item => item.completed).length);
+
         }
         getTask();
         setEmail(JSON.parse(localStorage.getItem('userDetails')).email);
@@ -77,7 +94,7 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
                 <span>{task.title}</span>
             </div>
             <div className={styles.row}>
-                <span>Checklist:</span>
+                <span>Checklist {completedTasks}/{totalTasks}</span>
                 <div onClick={() => setIsListVisible(!isListVisible)}>
                     <img src={isListVisible ? upArrow : downArrow} height={20} width={20} alt="collapse" />
                 </div>
@@ -99,7 +116,7 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
                     {task.dueDate &&
                         <div className={styles.dueDate}>
 
-                            <span className={styles.taskDueDate}>{new Date(task.dueDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</span>
+                            <span className={styles.taskDueDate} style={{ color: dueDateColor }}>{new Date(task.dueDate).toLocaleDateString()}</span>
                         </div>
                     }
                 </div>
@@ -122,7 +139,7 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
                     }
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

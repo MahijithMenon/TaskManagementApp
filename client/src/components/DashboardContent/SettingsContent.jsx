@@ -6,6 +6,7 @@ import axios from 'axios';
 import personLogo from '../../assets/person.png';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
+import eyeIcon from '../../assets/eye.png';
 
 
 function SettingsContent() {
@@ -15,6 +16,8 @@ function SettingsContent() {
     const [newPassword, setNewPassword] = useState('');
     const nameInputRef = useRef();
     const [errorMessage, setErrorMessage] = useState('');
+    const [passwordType, setPasswordType] = useState('password');
+    const [confirmpasswordType, setConfirmPasswordType] = useState('password');
 
     const handleInputClick = (e) => {
         const len = e.target.value.length;
@@ -61,7 +64,7 @@ function SettingsContent() {
             <div className={styles.inputGroup}>
                 <div className={styles.inputWrapper}>
                     <div>
-                        <img src={personLogo} alt="personlogo" />
+                        <img src={personLogo} width={30} height={30} alt="personlogo" />
                     </div>
                     <input type="text" placeholder="Name" value={userDetails.name} ref={nameInputRef} onClick={handleInputClick} onChange={(e) => setUserDetails((prev) => ({ ...prev, name: e.target.value }))} />
                 </div>
@@ -71,7 +74,10 @@ function SettingsContent() {
                     <div>
                         <img src={lock} alt="lock" />
                     </div>
-                    <input type="password" placeholder="Old Password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} />
+                    <input type={passwordType} placeholder="Old Password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} />
+                    <div onClick={() => setPasswordType(passwordType === 'password' ? 'text' : 'password')}>
+                        <img src={eyeIcon} width={20} height={20} alt="eye" />
+                    </div>
                 </div>
             </div>
             <div className={styles.inputGroup}>
@@ -79,7 +85,10 @@ function SettingsContent() {
                     <div>
                         <img src={lock} alt="lock" />
                     </div>
-                    <input type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                    <input type={confirmpasswordType} placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                    <div onClick={() => setConfirmPasswordType(confirmpasswordType === 'password' ? 'text' : 'password')}>
+                        <img src={eyeIcon} alt="eye" width={20} height={20} />
+                    </div>
                 </div>
             </div>
             <button onClick={handleUpdate}>Update</button>

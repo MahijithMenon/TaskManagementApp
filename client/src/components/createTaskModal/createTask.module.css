@@ -1,90 +1,145 @@
+/* createTask.module.css */
 .modal {
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modalContent {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+    background-color: white;
     padding: 20px;
-    background-color: #fff;
     border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
 }
 
-
-.inputLabel {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.inputLabel input {
-    border: 1px solid #000;
-    padding: 5px;
-    margin: 5px 0;
-}
-
+.inputLabel,
 .radioGroup {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .radioButton {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.scrollableDiv {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    flex-direction: ;
+}
+
+.checklistItem {
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 30%;
-    height: 50px;
+    justify-content: flex-start;
+}
+
+.innerDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.addButton {
+    display: block;
+    margin-bottom: 20px;
+    background-color: white;
+    color: black;
     border: 1px solid #000;
-    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .buttonGroup {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-}
-
-.leftSide {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-.rightSide {
-    display: flex;
-    justify-content: flex-end;
-    width: 50%;
+    align-items: center;
 }
 
 .cancelButton,
 .saveButton {
-    margin-left: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+
 }
 
+.saveButton {
+    background-color: #17A2B8;
+    ;
+    color: white;
+    border: 1px solid #63C05B;
 
-.scrollableDiv {
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
 }
 
-.checklistItem {
+.cancelButton {
+    color: #FF2473;
+    background-color: white;
+    border: 1px solid #FF2473;
+
+}
+
+.radioGroup {
     display: flex;
     align-items: center;
-    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.checklistInput {
-    flex-grow: 1;
-    margin-left: 10px;
+.radioButtons {
+    display: flex;
+    gap: 10px;
+}
+
+.radioButton input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+}
+
+.radioButton input[type="radio"]:checked {
+    background: none;
+}
+
+.radioButton {
+    color: black;
+    border: 1px solid #000;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.radioButtonLow {
+    border-color: #63C05B;
+}
+
+.radioButtonMedium {
+    border-color: #18B0FF;
+}
+
+.radioButtonHigh {
+    border-color: #FF2473;
+}
+
+.radioButtonActive {
+    border-width: 2px;
 }
