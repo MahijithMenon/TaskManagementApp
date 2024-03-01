@@ -1,0 +1,24 @@
+.taskContainer {
+    /* Add your styles here */
+}
+
+.title {
+    /* Add your styles here */
+}
+
+.priority {
+    /* Add your styles here */
+}
+
+.createdAt {
+    /* Add your styles here */
+}
+
+.checklist {
+    maxHeight: 200px;
+    overflowY: auto;
+}
+
+.checklistItem {
+    /* Add your styles here */
+}

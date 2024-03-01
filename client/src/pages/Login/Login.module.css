@@ -1,0 +1,65 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.leftPanel {
+    background-color: #17A2B8;
+    width: 100vw;
+    height: 100vh;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.leftPanel,
+.rightPanel {
+    width: 100%;
+}
+
+@media (min-width: 48em) {
+
+
+    .container {
+        flex-direction: row;
+    }
+
+    .leftPanel,
+    .rightPanel {
+        width: 50%;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+input,
+button {
+    margin: 1em 0;
+    padding: 1em;
+    width: 50%;
+}
+
+.error {
+    border: 1px solid red;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 12px;
+}

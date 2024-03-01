@@ -1,0 +1,44 @@
+.settingsContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    border: 2px solid #EDF5FE;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    padding-left: 30px;
+    width: 100%;
+}
+
+.material-icons {
+    position: absolute;
+    left: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.error {
+    color: red;
+    font-size: 40px;
+}

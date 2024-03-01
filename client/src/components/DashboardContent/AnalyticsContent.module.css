@@ -1,0 +1,36 @@
+.dashboardContent {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F9FCFF;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.div {
+    width: 45%;
+    background-color: #F9FCFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    font-size: 27px;
+    position: relative;
+}
+
+.row::before {
+    content: '';
+    width: 0.7em;
+    height: 0.7em;
+    background-color: #90C4CC;
+    border-radius: 50%;
+    position: absolute;
+    left: -1.5em;
+    top: 50%;
+    transform: translateY(-50%);
+}

@@ -1,0 +1,39 @@
+.modal {
+    position: absolute;
+    top: 10px;
+    left: -80px;
+    z-index: 1000;
+    width: 80px;
+    padding: 5px;
+    background-color: white;
+
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: transparent;
+
+    color: black;
+
+    text-align: center;
+    border: none;
+
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #f2f2f2;
+
+}
+
+.button.delete {
+    color: red;
+}
