@@ -19,7 +19,7 @@ const TaskPage = () => {
             try {
                 const response = await axios.get(`http://localhost:5000/getTask/${taskId}`);
                 setTask(response.data);
-                console.log(response.data);
+
             }
             catch (err) {
                 setError(err.message);

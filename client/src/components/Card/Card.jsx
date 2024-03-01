@@ -29,13 +29,13 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
     }
 
 
-    const handleMoveCards = (newBoard) => {
+    const handleMoveCards = async (newBoard) => {
         try {
 
-            const response = axios.post(`http://localhost:5000/moveTask/${taskID}`, { previousBoard: boardName, newBoard, email });
+            const response = await axios.post(`http://localhost:5000/moveTask/${taskID}`, { previousBoard: boardName, newBoard, email });
             if (response.status === 200) {
                 window.location.reload();
-                console.log('Task successfully');
+
             }
         }
         catch (error) {

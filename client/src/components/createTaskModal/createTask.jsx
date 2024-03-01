@@ -24,7 +24,7 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
                 }
             }
             fetchTask();
-            console.log(taskId)
+
         }
         else {
             setTaskId(null);
@@ -73,7 +73,7 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
         try {
             if (userDetails.email !== '' && userDetails.email !== undefined) {
                 if (taskId) {
-                    console.log(task)
+
                     const response = await axios.put(`http://localhost:5000/handleEditTask/${taskId}`, task);
                     if (response.status === 200) {
                         closeModal();
