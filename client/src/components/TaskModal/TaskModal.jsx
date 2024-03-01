@@ -17,7 +17,8 @@ function MyComponent({ task, setShowCreateTaskModal, setSelectedTaskId, setShowD
     }
 
     const handleShare = () => {
-        toast('Feature coming soon');
+        navigator.clipboard.writeText(`http://localhost:3000/publicpage/${task._id}`);
+        toast.success('Link copied to clipboard');
 
     }
     return (

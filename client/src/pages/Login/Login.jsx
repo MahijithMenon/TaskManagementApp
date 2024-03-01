@@ -18,6 +18,7 @@ const Login = () => {
 
 
     const handleSignupOrLogin = (e) => {
+        e.preventDefault();
         const { name } = e.target;
         if (name === 'setToRegister') {
             setIsSignUp(true);
@@ -91,7 +92,7 @@ const Login = () => {
                         <label htmlFor="password">Password:</label>
                         <input type="password" id="password" placeholder='password' name="password" value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
                         {errors.password && <div className={styles.errorMessage}>{errors.password}</div>}
-                        <button onClick={(e) => handleSubmit(e)}>Login</button>
+                        <button type='button' className={styles.btnLogin} name='setToLogin' onClick={(e) => handleSubmit(e)}>Login</button>
                         <p>Have no account yet?</p>
                         <button type="button" name='setToRegister' onClick={(e) => handleSignupOrLogin(e)}>
                             Register
@@ -110,9 +111,9 @@ const Login = () => {
                         {errors.password && <div className={styles.errorMessage}>{errors.password}</div>}
                         <input type="password" id="confirmPassword" name="confirmPassword" placeholder='Confirm Password' value={userDetails.confirmPassword} onChange={(e) => handleChangeInput(e)} />
                         {errors.confirmPassword && <div className={styles.errorMessage}>{errors.confirmPassword}</div>}
-                        <button onClick={(e) => handleSubmit(e)}>Sign Up</button>'
+                        <button type='button' className={styles.btnLogin} onClick={(e) => handleSubmit(e)}>Sign Up</button>'
                         <p>Already have an account?</p>
-                        <button type="button" name='setToSignup' className={styles.btnLogin} onClick={(e) => handleSignupOrLogin(e)}>
+                        <button type="button" name='setToLogin' onClick={(e) => handleSignupOrLogin(e)} >
                             Login
                         </button>
                     </form>
