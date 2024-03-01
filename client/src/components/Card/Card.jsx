@@ -34,6 +34,7 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
 
             const response = axios.post(`http://localhost:5000/moveTask/${taskID}`, { previousBoard: boardName, newBoard, email });
             if (response.status === 200) {
+                window.location.reload();
                 console.log('Task successfully');
             }
         }

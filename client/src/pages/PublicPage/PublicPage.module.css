@@ -1,24 +1,58 @@
 .taskContainer {
-    /* Add your styles here */
-}
-
-.title {
-    /* Add your styles here */
-}
-
-.priority {
-    /* Add your styles here */
-}
-
-.createdAt {
-    /* Add your styles here */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .checklist {
-    maxHeight: 200px;
-    overflowY: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
 }
 
-.checklistItem {
-    /* Add your styles here */
+.dueDate {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.dueDateOverdue {
+    color: red;
+}
+
+@media (max-width: 600px) {
+
+    .dueDate,
+    .dueDateOverdue {
+        font-size: 1em;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .taskContainer {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.5em;
+    }
+
+    .priority,
+    .createdAt {
+        font-size: 1em;
+    }
+
+    .checklistItem {
+        font-size: 1em;
+    }
 }

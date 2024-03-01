@@ -77,6 +77,9 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
                     const response = await axios.put(`http://localhost:5000/handleEditTask/${taskId}`, task);
                     if (response.status === 200) {
                         closeModal();
+                        setTaskId(null);
+                        setTask({ title: '', priority: '', checklist: [], dueDate: '' });
+                        window.location.reload();
                     }
                 } else {
                     const response = await axios.post(`http://localhost:5000/createTask/${userDetails.email}`, { task });
@@ -84,6 +87,7 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
                         closeModal();
                         setTaskId(response.data._id);
                         setTask({ title: '', priority: '', checklist: [], dueDate: '' });
+                        window.location.reload();
                     }
                 }
             }

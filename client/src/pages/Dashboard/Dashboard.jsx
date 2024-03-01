@@ -11,6 +11,13 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Dashboard() {
+    const user = JSON.parse(localStorage.getItem('userDetails'));
+    const token = localStorage.getItem('token');
+
+    if (!user || !token) {
+        window.location.href = '/';
+    }
+
     return (
         <div className={styles.dashboard}>
             <div className={styles.sidebar}>

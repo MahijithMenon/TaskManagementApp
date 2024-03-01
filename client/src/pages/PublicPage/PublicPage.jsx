@@ -7,6 +7,7 @@ const TaskPage = () => {
     const { taskId } = useParams();
     const [task, setTask] = useState(null);
     const [error, setError] = useState(null);
+    const isOverdue = task && task.dueDate && new Date(task.dueDate) < new Date();
 
     useEffect(() => {
         if (!taskId) {
@@ -51,11 +52,23 @@ const TaskPage = () => {
                 <div className={styles.checklist}>
                     {task.checklist ? task.checklist.map((item, index) => (
                         <div key={index} className={styles.checklistItem}>
-                            <input type="checkbox" checked={item.done} readOnly />
+                            <input type="checkbox" checked={item.done} disabled />
                             <label>{item.text}</label>
                         </div>
                     )) : <p>No checklist items found</p>}
                 </div>
+
+                <div className={styles.dueDate}>
+
+                    {task.dueDate && (
+                        <div className={isOverdue ? styles.dueDateOverdue : styles.dueDate}>
+                            <p>Due Date: {task.dueDate}</p>
+                        </div>
+                    )}
+
+                </div>
+
+
             </div>
         ) : <div>Loading...</div>
     );

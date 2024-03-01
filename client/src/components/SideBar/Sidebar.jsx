@@ -11,6 +11,12 @@ function Sidebar() {
     const navigate = useNavigate();
     const location = useLocation();
 
+    const handleSignout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userDetails');
+        navigate('/');
+    }
+
     return (
         <>
             <div className={styles.menu}>
@@ -32,7 +38,7 @@ function Sidebar() {
             </div>
             <div className={styles.footer}>
                 <img src={LogoutBtn} width={20} height={20} alt="Logout" />
-                <button className={styles.logoutButton}>
+                <button className={styles.logoutButton} onClick={handleSignout}>
                     Logout
                 </button>
             </div>

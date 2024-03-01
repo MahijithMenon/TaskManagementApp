@@ -16,7 +16,6 @@ function DashboardContent() {
     };
     const fetchTasks = async () => {
         try {
-            console.log(userDetails.email);
             const response = await axios.get(`http://localhost:5000/getBoards/${userDetails.email}?dateFilter=${dateFilter}`);
             setBoardsDetails(response.data);
         } catch (err) {

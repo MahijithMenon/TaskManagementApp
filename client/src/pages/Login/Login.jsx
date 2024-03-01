@@ -14,6 +14,7 @@ const Login = () => {
         password: '',
         confirmPassword: '',
     });
+    const [errors, setErrors] = useState({});
 
 
     const handleSignupOrLogin = (e) => {
@@ -27,11 +28,37 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors({});
+
+        let errors = {};
+        if (!userDetails.email) {
+            errors.email = 'Email is required';
+        }
+        if (!userDetails.password) {
+            errors.password = 'Password is required';
+        }
+
+
         if (isSignUp) {
+            if (!userDetails.name) {
+                errors.name = 'Name is required';
+            }
+            if (!userDetails.confirmPassword) {
+                errors.confirmPassword = 'Confirm Password is required';
+            }
+
             if (userDetails.password !== userDetails.confirmPassword) {
-                return alert('Passwords do not match');
+                setErrors({ confirmPassword: 'Passwords do not match' });
+                return;
             }
         }
+
+        if (Object.keys(errors).length > 0) {
+            setErrors(errors);
+            return;
+        }
+
+
 
         const url = isSignUp ? 'http://localhost:5000/signup' : 'http://localhost:5000/login';
         try {
@@ -42,6 +69,7 @@ const Login = () => {
                 navigate('/dashboard');
             }
         } catch (error) {
+            setErrors({ general: 'An error occurred during form submission' });
             console.log(error);
         }
 
@@ -59,8 +87,10 @@ const Login = () => {
                         <h2>Login</h2>
                         <label htmlFor="email">Email:</label>
                         <input type="text" id="email" name="email" placeholder='email' value={userDetails.email} onChange={(e) => handleChangeInput(e)} />
+                        {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
                         <label htmlFor="password">Password:</label>
                         <input type="password" id="password" placeholder='password' name="password" value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
+                        {errors.password && <div className={styles.errorMessage}>{errors.password}</div>}
                         <button onClick={(e) => handleSubmit(e)}>Login</button>
                         <p>Have no account yet?</p>
                         <button type="button" name='setToRegister' onClick={(e) => handleSignupOrLogin(e)}>
@@ -73,9 +103,13 @@ const Login = () => {
                     <form>
                         <h2>Sign Up</h2>
                         <input type="text" id="name" name="name" placeholder='name' value={userDetails.name} onChange={(e) => handleChangeInput(e)} />
+                        {errors.name && <div className={styles.errorMessage}>{errors.name}</div>}
                         <input type="text" id="email" name="email" placeholder='email' value={userDetails.email} onChange={(e) => handleChangeInput(e)} />
+                        {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
                         <input type="password" id="password" name="password" placeholder='password' value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
+                        {errors.password && <div className={styles.errorMessage}>{errors.password}</div>}
                         <input type="password" id="confirmPassword" name="confirmPassword" placeholder='Confirm Password' value={userDetails.confirmPassword} onChange={(e) => handleChangeInput(e)} />
+                        {errors.confirmPassword && <div className={styles.errorMessage}>{errors.confirmPassword}</div>}
                         <button onClick={(e) => handleSubmit(e)}>Sign Up</button>'
                         <p>Already have an account?</p>
                         <button type="button" name='setToSignup' onClick={(e) => handleSignupOrLogin(e)}>
