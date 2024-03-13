@@ -23,6 +23,10 @@ try {
   process.exit(1);
 }
 
+app.get('/', (req, res) => {
+  res.send('Server is running');
+}
+);
 
 
 app.post('/login', async (req, res) => {
