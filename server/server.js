@@ -1,8 +1,12 @@
-const express = require('express');
-const app = express();
+const http = require('http');
+const app = require('./index');
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+const server = http.createServer(app);
+
+server.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+}
+);
+
