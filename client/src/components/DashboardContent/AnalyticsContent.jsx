@@ -18,7 +18,7 @@ function AnalyticsContent() {
         const handleGetAnalytics = async () => {
             try {
                 const email = JSON.parse(localStorage.getItem('userDetails')).email;
-                const response = await axios.get(`http://localhost:5000/getAnalytics/${email}`);
+                const response = await axios.get(`https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/getAnalytics/${email}`);
                 setData(response.data);
             }
             catch (err) {

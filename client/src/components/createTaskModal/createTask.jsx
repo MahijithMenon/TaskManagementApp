@@ -17,7 +17,7 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
         if (taskId) {
             const fetchTask = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:5000/getTask/${taskId}`);
+                    const response = await axios.get(`https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/getTask/${taskId}`);
                     if (response.status === 200) {
                         setTask(response.data);
 
@@ -77,7 +77,7 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
             if (userDetails.email !== '' && userDetails.email !== undefined) {
                 if (taskId) {
 
-                    const response = await axios.put(`http://localhost:5000/handleEditTask/${taskId}`, task);
+                    const response = await axios.put(`https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/handleEditTask/${taskId}`, task);
                     if (response.status === 200) {
                         closeModal();
                         setTaskId(null);
@@ -85,7 +85,7 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
                         window.location.reload();
                     }
                 } else {
-                    const response = await axios.post(`http://localhost:5000/createTask/${userDetails.email}`, { task });
+                    const response = await axios.post(`https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/createTask/${userDetails.email}`, { task });
                     if (response.status === 200) {
                         closeModal();
                         setTaskId(response.data._id);

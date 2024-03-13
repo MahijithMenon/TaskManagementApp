@@ -46,7 +46,7 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
     const handleMoveCards = async (newBoard) => {
         try {
 
-            const response = await axios.post(`http://localhost:5000/moveTask/${taskID}`, { previousBoard: boardName, newBoard, email });
+            const response = await axios.post(`https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/moveTask/${taskID}`, { previousBoard: boardName, newBoard, email });
             if (response.status === 200) {
                 window.location.reload();
 
@@ -61,7 +61,7 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
 
     useEffect(() => {
         const getTask = async () => {
-            const response = await axios.get(`http://localhost:5000/getTask/${taskID}`);
+            const response = await axios.get(`https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/getTask/${taskID}`);
             setTask(response.data);
             setTotalTasks(response.data.checklist.length);
             setCompletedTasks(response.data.checklist.filter(item => item.completed).length);

@@ -17,7 +17,7 @@ const TaskPage = () => {
 
         const handleGetTask = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/getTask/${taskId}`);
+                const response = await axios.get(`https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/getTask/${taskId}`);
                 setTask(response.data);
                 console.log(response.data);
 

@@ -63,7 +63,7 @@ const Login = () => {
 
 
 
-        const url = isSignUp ? 'http://localhost:5000/signup' : 'http://localhost:5000/login';
+        const url = isSignUp ? 'https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/signup' : 'https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/login';
         try {
             const response = await axios.post(url, userDetails);
             if (response.status === 200) {

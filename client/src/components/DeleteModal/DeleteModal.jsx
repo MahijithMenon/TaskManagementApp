@@ -7,7 +7,7 @@ function DeleteModal({ closeModal, taskId }) {
 
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`http://localhost:5000/deleteTask/${taskId}`);
+            const response = await axios.delete(`https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/deleteTask/${taskId}`);
             if (response.status === 200) {
                 closeModal();
                 window.location.reload();

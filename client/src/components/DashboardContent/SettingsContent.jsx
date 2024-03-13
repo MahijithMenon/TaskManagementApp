@@ -28,7 +28,7 @@ function SettingsContent() {
 
         try {
 
-            const response = await axios.put('http://localhost:5000/updatePassword', {
+            const response = await axios.put('https://menon-mahijith-gmail-com-cuvette-final-lpx3.onrender.com/updatePassword', {
                 email: userDetails.email,
                 oldPassword,
                 newPassword,
