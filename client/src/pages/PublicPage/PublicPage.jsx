@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import styles from './PublicPage.module.css';
+import logo from '../../assets/logo.png';
 
 const TaskPage = () => {
     const { taskId } = useParams();
@@ -60,6 +61,9 @@ const TaskPage = () => {
     return (
         task ? (
             <div className={styles.wrapper}>
+
+                <img className={styles.logo} src={logo} alt="logo" />
+
                 <div className={styles.taskContainer}>
                     <div className={styles.heading}>
                         <p className={styles.priority}><span style={{
