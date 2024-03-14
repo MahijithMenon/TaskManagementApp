@@ -144,3 +144,7 @@
 .radioButtonActive {
     border-width: 2px;
 }
+
+input[type="radio"] {
+    display: none;
+}

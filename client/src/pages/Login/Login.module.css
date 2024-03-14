@@ -38,7 +38,10 @@ body {
 .rightPanel {
     width: 100vw;
     height: 100vh;
+    text-align: center;
+
 }
+
 
 
 form {
@@ -80,6 +83,7 @@ input {
     padding: 1em !important;
     width: 50% !important;
     margin-bottom: 1em;
+    display: inline-block;
 
 }
 
@@ -107,6 +111,9 @@ input {
     border: 1px solid #D0D0D0;
     border-radius: 5px;
     margin-bottom: 1em;
+    padding: 1em;
+
+
 
 }
 

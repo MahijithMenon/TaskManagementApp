@@ -96,12 +96,12 @@ const Login = () => {
                     <form>
                         <h2>Login</h2>
                         <div className={styles.passwordDiv}>
-                            <img src={email} height={20} width={20} alt="email" />
+                            <img src={email} height={30} width={40} alt="email" />
                             <input type="text" id="email" name="email" placeholder='email' value={userDetails.email} onChange={(e) => handleChangeInput(e)} />
                         </div>
                         {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
                         <div className={styles.passwordDiv}>
-                            <img src={lock} height={20} width={20} alt="lock" />
+                            <img src={lock} height={30} width={40} alt="lock" />
 
 
                             <input type={passwordType} id="password" placeholder='password' className={styles.passwordInput} name="password" value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
@@ -120,13 +120,30 @@ const Login = () => {
                 <div className={styles.rightPanel}>
                     <form>
                         <h2>Sign Up</h2>
-                        <input type="text" id="name" name="name" placeholder='name' value={userDetails.name} onChange={(e) => handleChangeInput(e)} />
+                        <div className={styles.passwordDiv}>
+                            <img src={lock} height={30} width={40} alt="lock" />
+                            <input type="text" id="name" name="name" placeholder='name' value={userDetails.name} onChange={(e) => handleChangeInput(e)} />
+                            <img src={eyeIcon} height={20} width={20} alt="eye" onClick={() => setPasswordType(passwordType === 'password' ? 'text' : 'password')} />
+                        </div>
                         {errors.name && <div className={styles.errorMessage}>{errors.name}</div>}
-                        <input type="text" id="email" name="email" placeholder='email' value={userDetails.email} onChange={(e) => handleChangeInput(e)} />
+                        <div className={styles.passwordDiv}>
+                            <img src={email} height={30} width={40} alt="email" />
+                            <input type="text" id="email" name="email" placeholder='email' value={userDetails.email} onChange={(e) => handleChangeInput(e)} />
+                        </div>
                         {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
-                        <input type="password" id="password" name="password" placeholder='password' value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
+                        <div className={styles.passwordDiv}>
+                            <img src={lock} height={30} width={40} alt="lock" />
+
+
+                            <input type={passwordType} id="password" placeholder='password' className={styles.passwordInput} name="password" value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
+                            <img src={eyeIcon} height={20} width={20} alt="eye" onClick={() => setPasswordType(passwordType === 'password' ? 'text' : 'password')} />
+                        </div>
                         {errors.password && <div className={styles.errorMessage}>{errors.password}</div>}
-                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder='Confirm Password' value={userDetails.confirmPassword} onChange={(e) => handleChangeInput(e)} />
+                        <div className={styles.passwordDiv}>
+                            <img src={lock} height={30} width={40} alt="lock" />
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder='Confirm Password' value={userDetails.confirmPassword} onChange={(e) => handleChangeInput(e)} />
+                            <img src={eyeIcon} height={20} width={20} alt="eye" onClick={() => setPasswordType(passwordType === 'password' ? 'text' : 'password')} />
+                        </div>
                         {errors.confirmPassword && <div className={styles.errorMessage}>{errors.confirmPassword}</div>}
                         <button type='button' className={styles.btnLogin} onClick={(e) => handleSubmit(e)}>Sign Up</button>'
                         <p>Already have an account?</p>
