@@ -60,49 +60,52 @@ const TaskPage = () => {
 
     return (
         task ? (
-            <div className={styles.wrapper}>
+            <>
 
                 <img className={styles.logo} src={logo} alt="logo" />
+                <div className={styles.wrapper}>
 
-                <div className={styles.taskContainer}>
-                    <div className={styles.heading}>
-                        <p className={styles.priority}><span style={{
-                            height: '10px',
-                            width: '10px',
-                            backgroundColor: getPriorityColor(task.priority),
-                            borderRadius: '50%',
-                            display: 'inline-block',
-                            marginRight: '5px'
-                        }}></span>{task.priority} Priority</p>
 
-                        <h1 className={styles.title}>{task.title}</h1>
-                    </div>
-                    <div className={styles.checklist}>
-                        <label>Checklist  {task.checklist && ` (${task.checklist.filter(item => item.completed).length}/${task.checklist.length})`}</label>
+                    <div className={styles.taskContainer}>
+                        <div className={styles.heading}>
+                            <p className={styles.priority}><span style={{
+                                height: '10px',
+                                width: '10px',
+                                backgroundColor: getPriorityColor(task.priority),
+                                borderRadius: '50%',
+                                display: 'inline-block',
+                                marginRight: '5px'
+                            }}></span>{task.priority} Priority</p>
 
-                        <div className={styles.scrollableDiv}>
-                            {task.checklist ? task.checklist.map((item, index) => (
-                                <div key={index} className={styles.checklistItem}>
-                                    <input type="checkbox" checked={item.completed} disabled />
-                                    <label>{item.text}</label>
-                                </div>
-                            )) : <p>No checklist items found</p>}
-
+                            <h1 className={styles.title}>{task.title}</h1>
                         </div>
-                    </div>
+                        <div className={styles.checklist}>
+                            <label>Checklist  {task.checklist && ` (${task.checklist.filter(item => item.completed).length}/${task.checklist.length})`}</label>
 
-                    {task.dueDate && (
-                        <div className={styles.dueDate} >
-                            <p>Due Date:</p>
-                            <p className={isOverdue ? styles.dueDateOverdue : styles.dueDateNotOverdue}>{new Date(task.dueDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}</p>
+                            <div className={styles.scrollableDiv}>
+                                {task.checklist ? task.checklist.map((item, index) => (
+                                    <div key={index} className={styles.checklistItem}>
+                                        <input type="checkbox" checked={item.completed} disabled />
+                                        <label>{item.text}</label>
+                                    </div>
+                                )) : <p>No checklist items found</p>}
+
+                            </div>
                         </div>
-                    )}
+
+                        {task.dueDate && (
+                            <div className={styles.dueDate} >
+                                <p>Due Date:</p>
+                                <p className={isOverdue ? styles.dueDateOverdue : styles.dueDateNotOverdue}>{new Date(task.dueDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}</p>
+                            </div>
+                        )}
 
 
 
 
+                    </div>
                 </div>
-            </div>
+            </>
         ) : <div>Loading...</div>
     );
 };

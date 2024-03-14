@@ -148,3 +148,7 @@
 input[type="radio"] {
     display: none;
 }
+
+.dateInput {
+    width: 100%;
+}

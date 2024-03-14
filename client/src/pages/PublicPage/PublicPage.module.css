@@ -3,20 +3,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     height: 100vh;
     padding: 0;
 }
-
 
 .logo {
     position: absolute;
     top: 0;
     left: 0;
+    width: 350px;
+
+    height: auto;
+    padding: 10px;
 }
 
 .heading {
     margin-top: 0;
     text-align: left;
+    font-size: 2em;
+    color: #333;
 }
 
 .taskContainer {
@@ -29,6 +35,8 @@
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .checklist {
