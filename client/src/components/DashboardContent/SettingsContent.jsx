@@ -91,7 +91,7 @@ function SettingsContent() {
                     </div>
                 </div>
             </div>
-            <button onClick={handleUpdate}>Update</button>
+            <button onClick={handleUpdate} className={styles.styledButton}>Update</button>
 
             {errorMessage && <div className={styles.error}>{errorMessage}</div>}
         </div>
