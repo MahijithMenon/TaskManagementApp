@@ -37,6 +37,7 @@
 
 .nameSection {
     flex: 1 0 100%;
+    margin-left: 15px;
 }
 
 .scrollableRectangle {
@@ -56,6 +57,7 @@
     align-items: end;
     padding: 10px;
     flex: 1 0 100%;
+    margin-left: 15px;
 }
 
 .rectangleContainer {

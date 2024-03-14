@@ -87,7 +87,7 @@ function SettingsContent() {
                     </div>
                     <input type={confirmpasswordType} placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
                     <div onClick={() => setConfirmPasswordType(confirmpasswordType === 'password' ? 'text' : 'password')}>
-                        <img src={eyeIcon} alt="eye" width={20} height={20} />
+                        <img className={styles.img} src={eyeIcon} alt="eye" width={20} height={20} />
                     </div>
                 </div>
             </div>

@@ -174,8 +174,8 @@ function CreateTaskModal({ closeModal, userDetails, taskId, setTaskId }) {
                 <div className={styles.buttonGroup}>
                     <label>
                         Due Date:
-                        {/* <input type="date" min={today} value={task.dueDate} onChange={handleDueDateChange} /> */}
-                        <input type="date" value={task.dueDate} onChange={handleDueDateChange} />
+                        <input type="date" min={today} value={task.dueDate} onChange={handleDueDateChange} />
+
                     </label>
                     <div className={styles.innerDiv}>
                         <button className={styles.cancelButton} onClick={handleCancel}>Cancel</button>

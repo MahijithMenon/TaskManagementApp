@@ -1,47 +1,95 @@
-html,
-body,
-#root,
-.App {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
 .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 0;
 }
 
+.heading {
+    margin-top: 0;
+    text-align: left;
+}
 
 .taskContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100%;
+    align-items: flex-start;
+    height: 60%;
+    width: 50%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
 }
 
 .checklist {
-    max-height: 300px;
-    overflow-y: auto;
     width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
-.dueDate {
-    font-size: 1.2em;
-    color: #333;
-    margin-top: 20px;
+.checklist label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.checklistItem {
+    width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    margin: 5px 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+}
+
+.checklistItem input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.checklistItem input[type="checkbox"]:checked {
+    background-color: #17A2B8;
+    color: white;
+}
+
+.scrollableDiv {
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+
+.dueDate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-right: 10px;
+    font-size: large;
+
 }
 
 .dueDateOverdue {
-    color: red;
+    background: #CF3636;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+.dueDateNotOverdue {
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 
 @media (max-width: 600px) {
 

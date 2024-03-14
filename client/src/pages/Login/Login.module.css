@@ -79,6 +79,7 @@ input {
     border-radius: 5px !important;
     padding: 1em !important;
     width: 50% !important;
+    margin-bottom: 1em;
 
 }
 
@@ -93,6 +94,7 @@ input {
 
 .passwordInput {
     border: none !important;
+    margin-bottom: 1em;
 
 
 }
@@ -104,6 +106,7 @@ input {
     width: 70%;
     border: 1px solid #D0D0D0;
     border-radius: 5px;
+    margin-bottom: 1em;
 
 }
 

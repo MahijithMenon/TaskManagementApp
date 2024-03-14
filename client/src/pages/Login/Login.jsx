@@ -75,7 +75,7 @@ const Login = () => {
             }
 
         } catch (error) {
-            setErrors({ general: error.message });
+            setErrors({ general: error.response.data });
 
         }
 

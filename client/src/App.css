@@ -4,3 +4,8 @@
     box-sizing: border-box;
 
 }
+
+button {
+    cursor: pointer;
+    border-radius: 25px;
+}
