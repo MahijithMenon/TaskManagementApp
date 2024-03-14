@@ -20,14 +20,14 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
     const dueDate = new Date(task.dueDate);
 
     let dueDateColor;
+    let textColor = 'grey';
     if (boardName === 'Done' && task.dueDate) {
         dueDateColor = '#63C05B';
+        textColor = 'white';
     } else if (dueDate < currentDate) {
         dueDateColor = 'red';
-    } else {
-        dueDateColor = 'black';
+        textColor = 'white';
     }
-
 
     const boards = ['Backlog', 'To Do', 'In Progress', 'Done'];
 
@@ -103,7 +103,7 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
                 {isListVisible && (
                     <div className={styles.scrollableDiv}>
                         {task && task.checklist && task.checklist.map((item, index) => (
-                            <div key={index} className={styles.row}>
+                            <div key={index} className={styles.largeCheckboxRow}>
                                 <input type="checkbox" checked={item.completed} readOnly />
                                 {item.text}
                             </div>
@@ -114,9 +114,9 @@ function Card({ boardName, taskID, setShowCreateTaskModal, setSelectedTaskId, se
             <div className={styles.row}>
                 <div>
                     {task.dueDate &&
-                        <div className={styles.dueDate}>
+                        <div className={styles.dueDate} style={{ background: dueDateColor }}>
 
-                            <span className={styles.taskDueDate} style={{ color: dueDateColor }}>{new Date(task.dueDate).toLocaleDateString()}</span>
+                            <span style={{ color: textColor }}>{new Date(task.dueDate).toLocaleDateString()}</span>
                         </div>
                     }
                 </div>

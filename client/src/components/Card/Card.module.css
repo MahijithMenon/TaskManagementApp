@@ -1,10 +1,11 @@
 .card {
     background-color: #FFFFFF;
-    border-radius: 5px;
+    border-radius: 25px;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
     margin: 10px;
     padding: 20px;
     width: calc(100% - 20px);
+    z-index: 1000;
 }
 
 .row {
@@ -42,7 +43,6 @@
     overflow-y: auto;
     width: 100%;
     max-height: 200px;
-    border: 1px solid #E2E2E2;
 }
 
 .scrollableDiv input[type="checkbox"] {
@@ -100,4 +100,22 @@
 
 .priority-dot.high {
     background-color: #FF2473 !important;
+}
+
+.largeCheckboxRow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid #E2E2E2;
+    border-radius: 10px;
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.largeCheckboxRow input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }

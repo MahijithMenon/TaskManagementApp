@@ -50,7 +50,7 @@ function DashboardContent() {
             <div className={styles.header}>
                 <h2>Board</h2>
 
-                <select value={dateFilter} onChange={handleDateFilterChange}>
+                <select className={styles.dropdown} value={dateFilter} onChange={handleDateFilterChange}>
                     {dateFilters.map((item, index) => (
                         <option key={index} value={item}>
                             {item}

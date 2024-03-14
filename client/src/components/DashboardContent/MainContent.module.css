@@ -11,8 +11,16 @@
     justify-content: space-between;
     margin-bottom: 10px;
     height: 5vh;
+    border: none;
 }
 
 .page {
     overflow-x: auto;
+}
+
+.dropdown {
+    background-color: #fff !important;
+    border: 1px solid #fff !important;
+    padding: 1em !important;
+    cursor: pointer;
 }

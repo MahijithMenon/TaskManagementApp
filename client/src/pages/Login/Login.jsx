@@ -4,7 +4,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import eyeIcon from '../../assets/eye.png';
-
+import lock from '../../assets/lock.png';
+import email from '../../assets/email.png';
+import astronaut from '../../assets/astronaut.png';
 
 const Login = () => {
     const [isSignUp, setIsSignUp] = useState(false);
@@ -84,15 +86,22 @@ const Login = () => {
     }
     return (
         <div className={styles.container}>
-            <div className={styles.leftPanel}></div>
+            <div className={styles.leftPanel}>
+                <div className={styles.centeredImage}>
+                    <img src={astronaut} alt="Astronaut" />
+                </div>
+            </div>
             {!isSignUp ? (
                 <div className={styles.rightPanel}>
                     <form>
                         <h2>Login</h2>
-
-                        <input type="text" id="email" name="email" placeholder='email' value={userDetails.email} onChange={(e) => handleChangeInput(e)} />
+                        <div className={styles.passwordDiv}>
+                            <img src={email} height={20} width={20} alt="email" />
+                            <input type="text" id="email" name="email" placeholder='email' value={userDetails.email} onChange={(e) => handleChangeInput(e)} />
+                        </div>
                         {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
                         <div className={styles.passwordDiv}>
+                            <img src={lock} height={20} width={20} alt="lock" />
 
 
                             <input type={passwordType} id="password" placeholder='password' className={styles.passwordInput} name="password" value={userDetails.password} onChange={(e) => handleChangeInput(e)} />
