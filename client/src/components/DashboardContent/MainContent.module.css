@@ -19,11 +19,13 @@
 }
 
 .dropdown {
-    background-color: #fff !important;
     border: 1px solid #fff !important;
-    padding: 1em !important;
+    color:  #000 !important;
+    background-color: #fff !important;
     cursor: pointer;
 }
+
+
 
 @media screen and (max-width: 600px) {
     .row {
@@ -38,5 +40,6 @@
 
     .dropdown {
         padding: 0.5em !important;
+        color: #000 !important;
     }
 }

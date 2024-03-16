@@ -45,6 +45,10 @@ body {
 
 
 form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,12 +56,16 @@ form {
     height: 100vh;
 }
 
-input,
-button {
-    margin: 1em 0;
-    padding: 1em;
-    width: 50%;
+form input {
+    margin-bottom: 1em;
+    outline: none !important;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 1em !important;
+    width: 100% !important;
+    
 }
+
 
 .error {
     border: 1px solid red;
@@ -69,7 +77,7 @@ button {
 }
 
 .btnLogin {
-    background-color: #17A2B8;
+    background-color: #17A2B8 !important;
     color: white;
     border: white;
     padding: 1em;
@@ -78,19 +86,19 @@ button {
 }
 
 input {
-    border: 1px solid #D0D0D0 !important;
+    border: none !important;
     border-radius: 5px !important;
     padding: 1em !important;
-    width: 50% !important;
+    width: 100% !important;
+    outline: none !important;
     margin-bottom: 1em;
     display: inline-block;
-
 }
 
 .btnOpp {
-    background-color: #white;
+    background-color: #white !important;
     color: #17A2B8;
-    border: #17A2B8;
+    border: #17A2B8 solid 1px !important;
     padding: 1em;
     width: 50%;
     cursor: pointer;
@@ -117,17 +125,6 @@ input {
 
 }
 
-.passwordDiv input[type="text"],
-.passwordDiv input[type="password"] {
-    width: 100% !important;
-    margin-left: 10px;
-    border: none !important;
-    padding: 1em !important;
-    outline: none !important;
-
-
-}
-
 @media (min-width: 48em) {
 
 
@@ -138,5 +135,16 @@ input {
     .leftPanel,
     .rightPanel {
         width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    form {
+        padding: 10px;
+    }
+
+    input {
+        padding: 5px;
+        margin-bottom: 10px;
     }
 }

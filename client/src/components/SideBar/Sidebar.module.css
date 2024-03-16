@@ -1,38 +1,77 @@
+.menu {
+    width: 100%;
+    padding: 10px;
+}
+
+.menu h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
 .menu ul {
     list-style-type: none;
     padding: 0;
-    width: 100%;
 }
 
 .menu li {
     text-align: center;
     font-size: 1.2em;
-    width: 80%;
     padding: 20px;
-    overflow: hidden
+    overflow: hidden;
+    display: flex;
+}
+img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    
+
 }
 
 .activeDashboard {
     background: #4391ED1A;
 }
 
-.menubox {
-    margin-top: 50px;
-    width: 100%;
-
-}
-
-.footer button {
-    color: red;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5em;
-}
-
-.menuItem {
+.footer {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
-
+    padding: 10px;
 }
+
+.footer img {
+    margin-right: 10px;
+}
+
+.logoutButton {
+    color: #c82333;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+    background: none !important;
+}
+
+@media screen and (max-width: 600px) {
+    .menu {
+        padding: 10px;
+    }
+
+    .menu h1 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .menu li {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+
+

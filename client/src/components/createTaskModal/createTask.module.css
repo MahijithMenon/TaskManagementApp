@@ -72,8 +72,8 @@
 
 .cancelButton,
 .saveButton {
-    background-color: white;
-    color: black;
+    background-color: white !important;
+    color: black !important;
     border: 1px solid #000;
     padding: 10px;
     margin: 10px;
@@ -85,17 +85,17 @@
 }
 
 .saveButton {
-    background-color: #17A2B8;
+    background-color: #17A2B8 !important;
     ;
     color: white;
-    border: 1px solid #63C05B;
+    border: 1px solid #63C05B !important;
 
 }
 
 .cancelButton {
-    color: #FF2473;
+    color: #FF2473 !important;
     background-color: white;
-    border: 1px solid #FF2473;
+    border: 1px solid #FF2473 !important;
 
 }
 
@@ -104,6 +104,16 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+input{
+    border: 1px solid #000 !important;
+    border-radius: 5px !important;
+    padding: 10px !important;
+    width: 100% !important;
+    outline: none !important;
+    margin-bottom: 10px;
+
 }
 
 .radioButtons {
@@ -151,4 +161,17 @@ input[type="radio"] {
 
 .dateInput {
     width: 100%;
+}
+.checklistItemBtn {
+    background-color: gray !important;
+    border: 1px solid #000;
+    color: black !important;
+    padding: 15px 32px !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
 }
