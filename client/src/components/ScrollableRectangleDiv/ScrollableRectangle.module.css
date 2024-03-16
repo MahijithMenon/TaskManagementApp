@@ -2,9 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
-
 
 .actionButtons {
     background-color: #EEF2F5;
@@ -20,9 +18,11 @@
 }
 
 .scrollableContainer {
-    width: 70%;
+    width: 100%;
     overflow-x: auto;
     white-space: nowrap;
+    position: fixed;
+    bottom: 0;
 }
 
 .header {
@@ -41,7 +41,8 @@
 }
 
 .scrollableRectangle {
-    width: 120%;
+    width: 90% !important;
+    min-width: 300px;
     height: 100vh;
     max-width: 2500px;
     max-height: 100%;
@@ -64,13 +65,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 120%;
+    width: 100%;
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
-
 }
-
 
 @media (min-width: 768px) {
     .scrollableRectangle {
@@ -82,7 +81,6 @@
         flex: 1;
     }
 }
-
 
 @media (min-width: 1024px) {
     .scrollableRectangle {

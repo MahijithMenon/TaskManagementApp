@@ -24,3 +24,19 @@
     padding: 1em !important;
     cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .header {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .dropdown {
+        padding: 0.5em !important;
+    }
+}
